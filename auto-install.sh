@@ -257,7 +257,8 @@ echo -e "Configuring system to install ${YELLOW}$COIN_NAME${NC} masternode. Plea
 apt-get update >/dev/null 2>&1
 DEBIAN_FRONTEND=noninteractive apt-get update > /dev/null 2>&1
 DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" -y -qq upgrade >/dev/null 2>&1
-apt install -y software-properties-common >/dev/null 2>&1
+apt-get install -y software-properties-common git build-essential libtool autotools-dev autoconf automake libssl-dev libevent-dev libboost-all-dev >/dev/null 2>&1
+apt-get install -y pkg-config libminiupnpc-dev libzmq3-dev bsdmainutils libssl*-dev >/dev/null 2>&1
 echo -e "${GREEN}Adding bitcoin PPA repository"
 apt-add-repository -y ppa:bitcoin/bitcoin >/dev/null 2>&1
 echo -e "Installing required packages, it may take some time to finish.${NC}"
